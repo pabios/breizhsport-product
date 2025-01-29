@@ -31,12 +31,12 @@ final class OrderDetailFactory extends PersistentProxyObjectFactory
      */
     protected function defaults(): array|callable
     {
-//        return [
-//            'quantity' => self::faker()->numberBetween(1, 10), // Quantité entre 1 et 10
-//            'unitPrice' => self::faker()->randomFloat(2, 10, 500), // Prix unitaire entre 10 et 500
-//            'product' => ProductFactory::random(), // Produit aléatoire
-//            'order' => OrderFactory::random(), // Commande aléatoire
-//        ];
+        //        return [
+        //            'quantity' => self::faker()->numberBetween(1, 10), // Quantité entre 1 et 10
+        //            'unitPrice' => self::faker()->randomFloat(2, 10, 500), // Prix unitaire entre 10 et 500
+        //            'product' => ProductFactory::random(), // Produit aléatoire
+        //            'order' => OrderFactory::random(), // Commande aléatoire
+        //        ];
 
         return [
             'quantity' => self::faker()->numberBetween(1, 10), // Quantité entre 1 et 10

@@ -11,7 +11,6 @@ use Doctrine\ORM\Mapping as ORM;
 #[ORM\Table(name: 'orders')]
 class Order extends BaseEntity
 {
-
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $customerEmail = null;
 

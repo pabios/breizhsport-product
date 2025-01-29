@@ -11,7 +11,9 @@ use Symfonycasts\MicroMapper\MicroMapperInterface;
 #[AsMapper(from: Product::class, to: ProductDto::class)]
 class ProductEntityToDtoMapper implements MapperInterface
 {
-    public function __construct(private MicroMapperInterface $microMapper) {}
+    public function __construct(private MicroMapperInterface $microMapper)
+    {
+    }
 
     public function load(object $from, string $toClass, array $context): object
     {
@@ -38,10 +40,10 @@ class ProductEntityToDtoMapper implements MapperInterface
         $dto->updatedAt = $entity->getUpdatedAt();
 
         // Mappe les catégories
-        $dto->categories = $entity->getCategories()->map(fn($category) => $category->getName())->toArray();
+        $dto->categories = $entity->getCategories()->map(fn ($category) => $category->getName())->toArray();
 
         // Mappe les images
-        $dto->images = $entity->getImages()->map(fn($image) => $image->getUrl())->toArray();
+        $dto->images = $entity->getImages()->map(fn ($image) => $image->getUrl())->toArray();
 
         return $dto;
     }

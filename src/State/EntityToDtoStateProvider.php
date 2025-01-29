@@ -1,5 +1,7 @@
 <?php
+
 // bin/console make:state-provider
+
 namespace App\State;
 
 use ApiPlatform\Doctrine\Orm\Paginator;
@@ -18,8 +20,7 @@ class EntityToDtoStateProvider implements ProviderInterface
         #[Autowire(service: CollectionProvider::class)] private ProviderInterface $collectionProvider,
         #[Autowire(service: ItemProvider::class)] private ProviderInterface $itemProvider,
         private MicroMapperInterface $microMapper
-    )
-    {
+    ) {
     }
 
     public function provide(Operation $operation, array $uriVariables = [], array $context = []): object|array|null

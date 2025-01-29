@@ -2,9 +2,8 @@
 
 namespace App\Entity;
 
-use Symfony\Bridge\Doctrine\IdGenerator\UuidGenerator;
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Uid\Uuid;
+use Symfony\Bridge\Doctrine\IdGenerator\UuidGenerator;
 
 class BaseEntity
 {
