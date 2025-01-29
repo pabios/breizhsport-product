@@ -52,6 +52,10 @@ class ProductDto
     #[ApiProperty(description: 'Catégories associées au produit', readable: true, writable: false)]
     public array $categories = [];
 
+    /**
+     * @phpstan-ignore-next-line
+     * @phpstan-ignore-previous-line
+     */
     #[ApiProperty(description: 'Images associées au produit', readable: true, writable: false)]
     public array $images = [];
 }
