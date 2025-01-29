@@ -2,6 +2,7 @@
 
 namespace App\Controller\Admin;
 
+use App\Entity\Inventory;
 use App\Entity\Order;
 use App\Entity\Product;
 use App\Repository\OrderRepository;
@@ -43,9 +44,6 @@ class DashboardController extends AbstractDashboardController
             'labels' => json_encode(array_column($ordersByMonth, 'month')),  // Récupère bien les mois
             'data' => json_encode(array_column($ordersByMonth, 'count')),  // Récupère bien les comptes
         ]);
-
-
-
     }
 
     public function configureDashboard(): Dashboard
@@ -57,9 +55,10 @@ class DashboardController extends AbstractDashboardController
     public function configureMenuItems(): iterable
     {
         return [
-            MenuItem::linkToDashboard('Dashboard', 'fa fa-home'),
-            MenuItem::linkToCrud('Products', 'fas fa-box', Product::class),
-            MenuItem::linkToCrud('Orders', 'fas fa-shopping-cart', Order::class),
+            MenuItem::linkToDashboard('Tableau de bord', 'fa fa-home'),
+            MenuItem::linkToCrud('Produits', 'fas fa-box', Product::class),
+            MenuItem::linkToCrud('Commandes', 'fas fa-shopping-cart', Order::class),
+            MenuItem::linkToCrud('Stock', 'fas fa-warehouse', Inventory::class),
         ];
     }
 
