@@ -78,3 +78,33 @@ jobs:
 
       - name: 🚀 Lancer les tests avec PestPHP
         run: vendor/bin/pest --coverage
+
+  sonarcloud:
+    name: 🔍 Analyse de Code avec SonarCloud
+    runs-on: ubuntu-latest
+    needs: tests
+
+    steps:
+      - name: 📥 Cloner le repo
+        uses: actions/checkout@v4
+
+      - name: 🛠️ Installer PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.2'
+          extensions: pdo, pdo_pgsql
+
+      - name: 🛠️ Installer les dépendances
+        run: composer install --prefer-dist --no-progress
+
+      - name: 🔍 Analyse de Code avec SonarCloud
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        run: |
+          sonar-scanner \
+            -Dsonar.organization=pabios \
+            -Dsonar.projectKey=breizhsport-product \
+            -Dsonar.sources=src \
+            -Dsonar.tests=tests \
+            -Dsonar.php.coverage.reportPaths=coverage.xml \
+            -Dsonar.host.url=https://sonarcloud.io
