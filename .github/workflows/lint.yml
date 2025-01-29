@@ -97,14 +97,15 @@ jobs:
       - name: 🛠️ Installer les dépendances
         run: composer install --prefer-dist --no-progress
 
-      - name: 🔍 Analyse de Code avec SonarCloud
+      - name: 📊 SonarCloud Scan
+        uses: SonarSource/sonarcloud-github-action@v2
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        run: |
-          sonar-scanner \
-            -Dsonar.organization=pabios \
-            -Dsonar.projectKey=breizhsport-product \
-            -Dsonar.sources=src \
-            -Dsonar.tests=tests \
-            -Dsonar.php.coverage.reportPaths=coverage.xml \
+        with:
+          args: >
+            -Dsonar.organization=pabios
+            -Dsonar.projectKey=breizhsport-product
+            -Dsonar.sources=src
+            -Dsonar.tests=tests
+            -Dsonar.php.coverage.reportPaths=coverage.xml
             -Dsonar.host.url=https://sonarcloud.io
