@@ -1,0 +1,64 @@
+{% extends '@EasyAdmin/layout.html.twig' %}
+
+{% block content %}
+    <h2>📊 Tableau de bord Breizhsport Administrateur</h2>
+
+    <div class="dashboard-container">
+        <div class="stat-card products">
+            <h3>📦 Produits</h3>
+            <p>{{ totalProducts }}</p>
+        </div>
+        <div class="stat-card orders">
+            <h3>🛒 Commandes</h3>
+            <p>{{ totalOrders }}</p>
+        </div>
+        <div class="stat-card revenue">
+            <h3>💰 Chiffre d'affaires</h3>
+            <p>{{ revenue|number_format(2, ',', ' ') }} €</p>
+        </div>
+    </div>
+
+    <style>
+        /* Conteneur principal du dashboard */
+        .dashboard-container {
+            margin-left: -170vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Centre horizontalement */
+            justify-content: center; /* Centre verticalement */
+            min-height: 100vh; /* Prend toute la hauteur */
+            gap: 20px;
+        }
+
+        /* Style des cartes */
+        .stat-card {
+            background: white;
+            padding: 20px 40px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            width: 300px; /* Largeur fixe */
+        }
+
+        /* Animation hover */
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Couleurs des cartes */
+        .products { background: #ffeb3b; }
+        .orders { background: #4caf50; color: white; }
+        .revenue { background: #2196f3; color: white; }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .dashboard-container {
+                padding: 20px;
+            }
+        }
+    </style>
+
+
+{% endblock %}

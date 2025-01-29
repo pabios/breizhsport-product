@@ -8,6 +8,7 @@ doctrine:
 
         profiling_collect_backtrace: '%kernel.debug%'
         use_savepoints: true
+
     orm:
         auto_generate_proxy_classes: true
         enable_lazy_ghost_objects: true
@@ -17,6 +18,9 @@ doctrine:
         identity_generation_preferences:
             Doctrine\DBAL\Platforms\PostgreSQLPlatform: identity
         auto_mapping: true
+#        dql:
+#            string_functions:
+#                DATE_TRUNC: DoctrineExtensions\Query\Postgresql\DATE_TRUNC
         mappings:
             App:
                 type: attribute
