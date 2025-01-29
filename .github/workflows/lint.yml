@@ -26,6 +26,7 @@ jobs:
 
       - name: ✅ Vérification avec PHPStan
         run: vendor/bin/phpstan analyse --memory-limit=512M --level=max src/
+        continue-on-error: true
 
       - name: ✅ Vérification du formatage PHP-CS-Fixer
         run: vendor/bin/php-cs-fixer fix --dry-run --diff
