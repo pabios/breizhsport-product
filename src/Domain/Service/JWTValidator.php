@@ -4,7 +4,6 @@ namespace App\Domain\Service;
 
 use Firebase\JWT\JWT;
 use Firebase\JWT\Key;
-use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 
 class JWTValidator
@@ -12,7 +11,8 @@ class JWTValidator
     private string $secretKey = 'your-very-secure-secret-key'; // 🔐 Doit être identique à celle d'Auth !
 
 
-    public function __construct() {
+    public function __construct()
+    {
         $this->secretKey = $_ENV['JWT_SECRET'] ?? 'fallback-secret-key';
     }
 

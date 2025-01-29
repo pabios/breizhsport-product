@@ -10,7 +10,6 @@ use ApiPlatform\Metadata\GetCollection;
 use ApiPlatform\Metadata\Post;
 use App\Controller\Action\OrderController;
 use App\Entity\Order;
-use App\Entity\Product;
 use App\State\EntityClassDtoStateProcessor;
 use App\State\EntityToDtoStateProvider;
 
@@ -30,7 +29,6 @@ use App\State\EntityToDtoStateProvider;
     provider: EntityToDtoStateProvider::class,
     processor: EntityClassDtoStateProcessor::class,
     stateOptions: new Options(entityClass: Order::class),
-
 )]
 class OrderDto
 {

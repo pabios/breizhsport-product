@@ -1,0 +1,18 @@
+parameters:
+    ignoreErrors:
+        - '#Property App\\ApiResource\\OrderDto::\$orderDetails type has no value type specified in iterable type array.#'
+        - '#Property App\\ApiResource\\ProductDto::\$categories type has no value type specified in iterable type array.#'
+        - '#Property App\\ApiResource\\ProductDto::\$images type has no value type specified in iterable type array.#'
+        - '#Cannot access offset .+ on mixed.#'
+        - '#Parameter #1 .+ expects .+, mixed given.#'
+        - '#Binary operation \* between float\|null and mixed results in an error.#'
+        - '#Strict comparison using === between .+ and 0 will always evaluate to false.#'
+        - '#Method .+ has parameter .+ with no type specified.#'
+        - '#Class .+ implements generic interface .+ but does not specify its types.#'
+        - '#Property .+ with generic interface .+ does not specify its types.#'
+        - '#Method .+ return type with generic interface .+ does not specify its types.#'
+
+    level: 5 # Réduit le niveau d'analyse temporairement (1 à 8, 8 = max)
+
+includes:
+    - vendor/phpstan/phpstan/conf/bleedingEdge.neon

@@ -87,7 +87,9 @@
     },
     "require-dev": {
         "doctrine/doctrine-fixtures-bundle": "^4.0",
+        "friendsofphp/php-cs-fixer": "^3.66",
         "pestphp/pest": "^3.6",
+        "phpstan/phpstan": "^2.1",
         "symfony/browser-kit": "7.1.*",
         "symfony/css-selector": "7.1.*",
         "symfony/maker-bundle": "^1.61",

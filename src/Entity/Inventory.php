@@ -59,4 +59,3 @@ class Inventory extends BaseEntity
         return $this;
     }
 }
-

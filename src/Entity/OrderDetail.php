@@ -8,7 +8,6 @@ use Doctrine\ORM\Mapping as ORM;
 #[ORM\Entity(repositoryClass: OrderDetailRepository::class)]
 class OrderDetail extends BaseEntity
 {
-
     #[ORM\Column(type: 'integer')]
     private int $quantity;
 

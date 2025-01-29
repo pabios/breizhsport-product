@@ -5,7 +5,6 @@ namespace App\Mapper\Product;
 use App\ApiResource\ProductDto;
 use App\Entity\Product;
 use App\Repository\ProductRepository;
-use Symfony\Bundle\SecurityBundle\Security;
 use Symfonycasts\MicroMapper\AsMapper;
 use Symfonycasts\MicroMapper\MapperInterface;
 use Symfonycasts\MicroMapper\MicroMapperInterface;
@@ -16,7 +15,8 @@ class ProductDtoToEntityMapper implements MapperInterface
     public function __construct(
         private MicroMapperInterface $microMapper,
         private ProductRepository $productRepository
-    ) {}
+    ) {
+    }
 
     public function load(object $from, string $toClass, array $context): object
     {

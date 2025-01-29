@@ -10,7 +10,6 @@ use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInt
 
 class HomeController extends AbstractController
 {
-
     #[Route('/', name: 'home')]
     public function index(): Response
     {

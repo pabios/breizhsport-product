@@ -1,5 +1,7 @@
 <?php
+
 // bin/console make:state-processor
+
 namespace App\State;
 
 use ApiPlatform\Doctrine\Common\State\PersistProcessor;
@@ -17,8 +19,7 @@ class EntityClassDtoStateProcessor implements ProcessorInterface
         #[Autowire(service: PersistProcessor::class)] private ProcessorInterface $persistProcessor,
         #[Autowire(service: RemoveProcessor::class)] private ProcessorInterface $removeProcessor,
         private MicroMapperInterface $microMapper
-    )
-    {
+    ) {
     }
 
     public function process(mixed $data, Operation $operation, array $uriVariables = [], array $context = [])

@@ -2,16 +2,12 @@
 
 namespace App\Domain\Security;
 
-
 use Firebase\JWT\JWT;
 use Firebase\JWT\Key;
-use Lexik\Bundle\JWTAuthenticationBundle\Security\User\JWTUser;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Security\Core\Exception\AuthenticationException;
 use Symfony\Component\Security\Core\User\UserInterface;
-use Symfony\Component\Security\Core\User\UserProviderInterface;
 use Symfony\Component\Security\Http\Authenticator\AbstractAuthenticator;
 use Symfony\Component\Security\Http\Authenticator\Passport\Badge\UserBadge;
 use Symfony\Component\Security\Http\Authenticator\Passport\Credentials\CustomCredentials;
@@ -21,7 +17,8 @@ class JWTAuthenticator extends AbstractAuthenticator
 {
     private string $secretKey;
 
-    public function __construct() {
+    public function __construct()
+    {
         $this->secretKey = $_ENV['JWT_SECRET'] ?? 'fallback-secret-key';
     }
 
@@ -90,10 +87,12 @@ class JWTAuthenticator extends AbstractAuthenticator
                         return $this->roles;
                     }
 
-                    public function eraseCredentials(): void {}
+                    public function eraseCredentials(): void
+                    {
+                    }
                 };
             }),
-            new CustomCredentials(fn() => true, $decoded)
+            new CustomCredentials(fn () => true, $decoded)
         );
     }
 

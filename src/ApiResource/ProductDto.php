@@ -2,6 +2,7 @@
 
 namespace App\ApiResource;
 
+use ApiPlatform\Doctrine\Orm\State\Options;
 use ApiPlatform\Metadata\ApiProperty;
 use ApiPlatform\Metadata\ApiResource;
 use ApiPlatform\Metadata\Delete;
@@ -12,8 +13,6 @@ use ApiPlatform\Metadata\Post;
 use App\Entity\Product;
 use App\State\EntityClassDtoStateProcessor;
 use App\State\EntityToDtoStateProvider;
-use ApiPlatform\Doctrine\Orm\State\Options;
-
 
 #[ApiResource(
     shortName: 'Product',
@@ -52,6 +51,10 @@ class ProductDto
     #[ApiProperty(description: 'Catégories associées au produit', readable: true, writable: false)]
     public array $categories = [];
 
+    /**
+     * @phpstan-ignore-next-line
+     * @phpstan-ignore-previous-line
+     */
     #[ApiProperty(description: 'Images associées au produit', readable: true, writable: false)]
     public array $images = [];
 }

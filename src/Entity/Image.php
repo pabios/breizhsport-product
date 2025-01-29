@@ -6,7 +6,7 @@ use App\Repository\ImageRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: ImageRepository::class)]
-class Image extends  BaseEntity
+class Image extends BaseEntity
 {
     #[ORM\Column(length: 255)]
     private ?string $url = null;
