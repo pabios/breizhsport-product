@@ -1,7 +1,7 @@
 security:
-    providers:
-        jwt_user_provider:
-            id: App\Domain\Service\UserProvider
+#    providers:
+#        jwt_user_provider:
+#            id: App\Domain\Service\UserProvider
     firewalls:
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
@@ -10,10 +10,12 @@ security:
         api:
             pattern: ^/api
             stateless: true
-            jwt: ~
+            custom_authenticator: App\Domain\Security\JWTAuthenticator
+#            jwt: ~
 
     access_control:
-        - { path: ^/api, roles: PUBLIC_ACCESS }
+        -  { path: ^/api, roles: IS_AUTHENTICATED_FULLY }
+        - { path: ^/api/toto, roles: PUBLIC_ACCESS }
 
 when@test:
     security:

@@ -31,7 +31,7 @@ use ApiPlatform\Doctrine\Orm\State\Options;
 )]
 class ProductDto
 {
-    #[ApiProperty(readable: true, writable: false, identifier: true)]
+    #[ApiProperty(readable: false, writable: false, identifier: true)]
     public ?string $id = null;
 
     #[ApiProperty(description: 'Nom du produit', example: 'Chaussures de course')]
