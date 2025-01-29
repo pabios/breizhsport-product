@@ -29,5 +29,6 @@ jobs:
         continue-on-error: true
 
       - name: ✅ Vérification du formatage PHP-CS-Fixer
-        continue-on-error: true
         run: vendor/bin/php-cs-fixer fix --dry-run --diff
+        continue-on-error: true
+
