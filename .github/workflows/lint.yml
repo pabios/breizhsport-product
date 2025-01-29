@@ -80,38 +80,14 @@ jobs:
         run: vendor/bin/pest --coverage
 
   sonarcloud:
-    name: 🔍 Analyse de Code avec SonarCloud
+    name: SonarCloud
     runs-on: ubuntu-latest
-    needs: tests  # S'assure que les tests passent avant d'envoyer l'analyse SonarCloud
-
     steps:
-      - name: 📥 Cloner le repo
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
         with:
-          fetch-depth: 0  # Permet une meilleure analyse de l'historique Git
-
-      - name: 🛠️ Installer PHP
-        uses: shivammathur/setup-php@v2
-        with:
-          php-version: '8.2'
-          extensions: pdo, pdo_pgsql
-
-      - name: 🛠️ Installer les dépendances
-        run: composer install --prefer-dist --no-progress
-
-      - name: 🧪 Exécuter les tests avec couverture de code
-        run: vendor/bin/pest --coverage-clover=coverage.xml
-
-      - name: 📊 Analyse avec SonarCloud
+          fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
+      - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@master
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Requis pour récupérer les infos de la PR
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}    # Ton token SonarCloud
-        with:
-          args: >
-            -Dsonar.organization=pabios
-            -Dsonar.projectKey=breizhsport-product
-            -Dsonar.sources=src
-            -Dsonar.tests=tests
-            -Dsonar.php.coverage.reportPaths=coverage.xml
-            -Dsonar.host.url=https://sonarcloud.io
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
